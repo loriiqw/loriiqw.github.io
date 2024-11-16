@@ -8,35 +8,29 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<style>
-    body{
-        background:url(https://wallpapers-clan.com/wp-content/uploads/2024/08/rick-and-morty-trippy-gif-desktop-wallpaper-preview.gif) no-repeat center center fixed;
-        background-size: cover;
-    }
-</style>
 
-<body class="bg-dark  text-white"style="background-color: #000000;">
-    <div class="container py-5">
+<body
+    style="background: url('https://66.media.tumblr.com/1c7f07f001676348cddd2d83de8ce807/a3649eaafe0569cb-30/s500x750/6048a495b6fb8e98331314d65883bb10175f4ff6.gif') no-repeat center center fixed, rgba(0, 0, 0, 0.6); background-blend-mode: overlay; background-size: cover;">
+
+    <div class="container py-4 position-relative" style="z-index: 2;">
         <div class="text-center mb-4">
-            <img src="img/Rick_and_Morty_title_card.86f57acb7686660618ca.png" alt="Rick and Morty Logo" class="img-fluid" style="max-width: 500px;">
+            <img src="img/ricky-removebg-preview.png" alt="Rick and Morty Logo" class="img-fluid"
+                style="max-width: 45%;">
         </div>
-
-        <h1 class="text-center mb-5 display-6" style="font-family: Courier New, Courier, monospace;">Rick & Morty Character Finder!</h1>
 
         <div class="row g-3 mb-4">
             <div class="col-md-5">
-                <input type="text" id="nameFilter" class="form-control" placeholder="Ex: Morty Smith">
+                <input type="text" id="nameFilter" class="form-control rounded-pill  border-0 shadow-sm p-2" placeholder="Search by name (Ex: Morty Smith)">
             </div>
             <div class="col-md-5">
-                <select id="speciesFilter" class="form-select">
+                <select id="speciesFilter" class="form-select rounded-pill border-0 shadow-sm p-2">
                     <option value="all">All Species</option>
                     <option value="human">Human</option>
                     <option value="alien">Alien</option>
                 </select>
             </div>
-        
             <div class="col-md-2 d-grid">
-                <button id="resetFilters" class="btn btn-info">Reset Filters</button>
+                <button id="resetFilters" class="btn btn-info rounded-pill border-0 shadow-sm p-2">Reset Filters</button>
             </div>
         </div>`
         
