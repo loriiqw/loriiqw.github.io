@@ -9,7 +9,10 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <style>
-    
+    body{
+        background:url(https://wallpapers-clan.com/wp-content/uploads/2024/08/rick-and-morty-trippy-gif-desktop-wallpaper-preview.gif) no-repeat center center fixed;
+        background-size: cover;
+    }
 </style>
 
 <body class="bg-dark  text-white"style="background-color: #000000;">
@@ -20,7 +23,6 @@
 
         <h1 class="text-center mb-5 display-6" style="font-family: Courier New, Courier, monospace;">Rick & Morty Character Finder!</h1>
 
-        <!-- Filters Section -->
         <div class="row g-3 mb-4">
             <div class="col-md-5">
                 <input type="text" id="nameFilter" class="form-control" placeholder="Ex: Morty Smith">
@@ -30,7 +32,6 @@
                     <option value="all">All Species</option>
                     <option value="human">Human</option>
                     <option value="alien">Alien</option>
-                    <!-- Add more species as needed -->
                 </select>
             </div>
         
@@ -38,8 +39,7 @@
                 <button id="resetFilters" class="btn btn-info">Reset Filters</button>
             </div>
         </div>`
-
-        <!-- Griddd -->
+        
         <div id="characterGrid" class="row g-4">
            
         </div>
