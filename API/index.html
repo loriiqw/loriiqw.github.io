@@ -53,10 +53,12 @@
         const apiUrl = 'https://rickandmortyapi.com/api/character';
         let allCharacters = [];
         let filteredCharacters = [];
+        let currentPage = 1;
+        const perPageCount = 10;
 
         async function fetchCharacters() {
             try {
-                const response = await fetch(`${apiUrl}?page=1`);
+                const response = await fetch(`${apiUrl}?page=${currentPage}`);
                 const data = await response.json();
                 allCharacters = data.results;
                 filteredCharacters = allCharacters;
@@ -118,6 +120,42 @@
             document.getElementById('nameFilter').value = '';
             document.getElementById('speciesFilter').value = 'all';
             renderCharacters(allCharacters);
+        }
+
+        function nextPage() {
+            currentPage += 1;
+
+            if (currentPage > 42) {
+                currentPage = 1;
+            }
+
+            updatePageButtons();
+            document.getElementById('characters').innerHTML = '';
+            fetchCharacters();
+        }
+
+        function prevPage() {
+            currentPage -= 1;
+
+            if (currentPage < 1) {
+                currentPage = 42;
+            }
+
+            updatePageButtons();
+            document.getElementById('characters').innerHTML = '';
+            fetchCharacters();
+        }
+        function updatePageButtons() {
+            const prevButton = document.getElementById("prevButton");
+            const nextButton = document.getElementById("nextButton");
+
+            prevButton.classList.remove("disabled");
+
+            if (currentPage === 42) {
+                nextButton.classList.remove("disabled");
+            } else {
+                nextButton.classList.remove("disabled");
+            }
         }
 
         document.getElementById('nameFilter').addEventListener('input', filterCharacters);
