@@ -90,6 +90,7 @@
                 const card = document.createElement('div');
                 card.classList.add('col-12', 'col-sm-6', 'col-md-3');
                 card.innerHTML = `
+                <a href="view.html?name=${encodeURIComponent(character.name)}&species=${encodeURIComponent(character.species)}&gender=${encodeURIComponent(character.gender)}&status=${encodeURIComponent(character.status)}&origin=${encodeURIComponent(character.origin.name)}&location=${encodeURIComponent(character.location.name)}&episodes=${character.episode.length}&image=${encodeURIComponent(character.image)}" class="text-decoration-none">
                 <div class="card shadow-sm rounded-3" style="background: rgba(255, 255, 255, 0.9);">
                     <img src="${character.image}" class="card-img-top">
                     <div class="card-body">
