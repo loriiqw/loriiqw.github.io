@@ -45,13 +45,15 @@
     <script>
         const apiUrl = 'https://rickandmortyapi.com/api/character';
         let allCharacters = [];
+        let filteredCharacters = [];
 
         async function fetchCharacters() {
             try {
-                const response = await fetch(apiUrl);
+                const response = await fetch(`${apiUrl}?page=1`);
                 const data = await response.json();
                 allCharacters = data.results;
-                renderCharacters(allCharacters);
+                filteredCharacters = allCharacters;
+                renderCharacters(filteredCharacters);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -61,24 +63,62 @@
             const container = document.getElementById('characters');
             container.innerHTML = '';
 
+            if (characters.length === 0) {
+                container.innerHTML = `
+                <div class="d-flex justify-content-center align-items-center">
+                    <div class="col-5 text-center pt-6">
+                        <div class="alert alert-warning p-4 rounded-3" role="alert" style="background-color: #ffcccb; color: #721c24;">
+                            <h5 class="fw-bold">No Results Found</h5>
+                            <p>There is no Rick and Morty character you're searching for. Try refining your search!</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+                return;
+            }
+
             characters.forEach(character => {
                 const card = document.createElement('div');
                 card.classList.add('col-12', 'col-sm-6', 'col-md-3');
                 card.innerHTML = `
-                    <div class="card shadow-sm rounded-3" style="background: rgba(255, 255, 255, 0.9);">
-                        <img src="${character.image}" class="card-img-top">
-                        <div class="card-body">
-                            <p class="card-text">ID: ${character.id}</p>
-                            <h5 class="card-title">${character.name}</h5>
-                            <p class="card-text">Species: ${character.species}</p>
-                        </div>
+                <div class="card shadow-sm rounded-3" style="background: rgba(255, 255, 255, 0.9);">
+                    <img src="${character.image}" class="card-img-top">
+                    <div class="card-body">
+                        <p class="card-text">ID: ${character.id}</p>
+                        <h5 class="card-title">${character.name}</h5>
+                        <p class="card-text">Species: ${character.species}</p>
                     </div>
-                `;
+                </div>
+            `;
                 container.appendChild(card);
             });
         }
 
+        function filterCharacters() {
+            const nameFilter = document.getElementById('nameFilter').value.toLowerCase();
+            const speciesFilter = document.getElementById('speciesFilter').value;
+
+            const filteredCharacters = allCharacters.filter(character => {
+                const matchesName = character.name.toLowerCase().includes(nameFilter);
+                const matchesSpecies = speciesFilter === 'all' || character.species.toLowerCase() === speciesFilter;
+                return matchesName && matchesSpecies;
+            });
+
+            renderCharacters(filteredCharacters);
+        }
+
+        function resetFilters() {
+            document.getElementById('nameFilter').value = '';
+            document.getElementById('speciesFilter').value = 'all';
+            renderCharacters(allCharacters);
+        }
+
+        document.getElementById('nameFilter').addEventListener('input', filterCharacters);
+        document.getElementById('speciesFilter').addEventListener('change', filterCharacters);
+        document.getElementById('resetFilters').addEventListener('click', resetFilters);
+
         window.onload = fetchCharacters;
     </script>
+
 </body>
 </html>
