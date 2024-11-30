@@ -289,38 +289,53 @@
                 </div>
             </div>
         </section>
-        <section id="explore" style="background-color: #f9f9f9;">
+        <section id="explore" class="py-4" style="background-color: #f9f9f9;">
             <div class="container">
-                <h2 class="text-center text-dark mt-5;">
+                <h2 class="text-center text-dark mt-5;" style="font-size: 36px; color: #2A3D45;">
                     Explore More
                 </h2>
+                <p class="text-dark lead text-center mt-1 mb-5"
+                    style="font-size: 16px; color: #6c757d; line-height: 1.6;">
+                    Dive deeper into the artistry of Billie Eilish with an exclusive documentary.
+                </p>
+                <div class=" justify-content-center align-items-center mb-5">
+                    <div class="glass-card"
+                        style="width: 80%; max-width: 800px; border-radius: 20px; overflow: hidden; backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.8);">
+                        <iframe width="100%" height="450"
+                            src="https://www.youtube.com/embed/55XJ1ObZKaM?si=axo6gZMIXvbwxA4G"
+                            title="Billie Eilish Documentary" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen style="border-radius: 20px; border: none;">
+                        </iframe>
+                    </div>
+                </div>
             </div>
         </section>
 
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-GLhlTQ8iRABdRiVCHgWRj8aGLjgsU6C2x4dFZdoWmc/5tP8yW1x9QOX6+f6Y4V4b"
-            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-GLhlTQ8iRABdRiVCHgWRj8aGLjgsU6C2x4dFZdoWmc/5tP8yW1x9QOX6+f6Y4V4b"
+        crossorigin="anonymous"></script>
 
-        <script>
-            const sidebarToggle = document.getElementById('sidebarToggle');
-            const sidebar = document.getElementById('sidebar');
-            const navItems = document.querySelectorAll('.nav-link');
+    <script>
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebar = document.getElementById('sidebar');
+        const navItems = document.querySelectorAll('.nav-link');
 
 
-            sidebarToggle.addEventListener('click', () => {
-                sidebar.classList.toggle('show');
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('show');
+        });
+
+        navItems.forEach(item => {
+            item.addEventListener('click', function (event) {
+                event.preventDefault();
+                const targetSection = document.querySelector(this.getAttribute('href'));
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+                sidebar.classList.remove('show');
             });
-
-            navItems.forEach(item => {
-                item.addEventListener('click', function (event) {
-                    event.preventDefault();
-                    const targetSection = document.querySelector(this.getAttribute('href'));
-                    targetSection.scrollIntoView({ behavior: 'smooth' });
-                    sidebar.classList.remove('show');
-                });
-            });
-        </script>
+        });
+    </script>
 
 </body>
 
