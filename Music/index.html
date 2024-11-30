@@ -313,35 +313,42 @@
         </section>
 
         <section id="tour" style="background-color: #fffcfbd5; padding: 50px 0; font-family: Arial, sans-serif;">
-            <div class="container">
-                <h2 >Billie's 2025 Upcoming Tour</h2>
+            <div class="container" style="max-width: 1200px; margin: 0 auto;">
+                <h2 style="font-size: 2rem; color: #333; text-align: center; margin-bottom: 40px;">Billie's 2025
+                    Upcoming Tour</h2>
+            </div class="row">
+            <div class="col-lg-6 mb-4">
+                <div class="tour-item "
+                    style="background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease; cursor: pointer;">
+                </div>
+            </div>
             </div>
         </section>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-GLhlTQ8iRABdRiVCHgWRj8aGLjgsU6C2x4dFZdoWmc/5tP8yW1x9QOX6+f6Y4V4b"
-        crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-GLhlTQ8iRABdRiVCHgWRj8aGLjgsU6C2x4dFZdoWmc/5tP8yW1x9QOX6+f6Y4V4b"
+            crossorigin="anonymous"></script>
 
-    <script>
-        const sidebarToggle = document.getElementById('sidebarToggle');
-        const sidebar = document.getElementById('sidebar');
-        const navItems = document.querySelectorAll('.nav-link');
+        <script>
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const sidebar = document.getElementById('sidebar');
+            const navItems = document.querySelectorAll('.nav-link');
 
 
-        sidebarToggle.addEventListener('click', () => {
-            sidebar.classList.toggle('show');
-        });
-
-        navItems.forEach(item => {
-            item.addEventListener('click', function (event) {
-                event.preventDefault();
-                const targetSection = document.querySelector(this.getAttribute('href'));
-                targetSection.scrollIntoView({ behavior: 'smooth' });
-                sidebar.classList.remove('show');
+            sidebarToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('show');
             });
-        });
-    </script>
+
+            navItems.forEach(item => {
+                item.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    const targetSection = document.querySelector(this.getAttribute('href'));
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                    sidebar.classList.remove('show');
+                });
+            });
+        </script>
 
 </body>
 
